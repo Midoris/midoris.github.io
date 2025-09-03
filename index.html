@@ -20,7 +20,7 @@
 				<!-- Intro -->
 					<div id="intro">
 						<h1>Ievgenii Iablonskyi</h1>
-						<p>iOS Developer</p>
+						<p>iOS/tvOS Developer</p>
 						<ul class="actions">
 							<li><a href="#header" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
 						</ul>
@@ -35,6 +35,12 @@
 					<nav id="nav">
 						<ul class="links">
 							<li class="active"><a href="index.html">My apps</a></li>
+                            <li>
+                                <a href="https://drive.google.com/file/d/1LZbb_Sj2iWyNn6z8uXlaquvJgj8PZqmepIxZQCwbgC0/preview"
+                                   target="_blank" rel="noopener">
+                                  Résumé
+                                </a>
+                              </li>
 						</ul>
 						<ul class="icons">
 							<li><a href="https://github.com/Midoris/budgets.demo/tree/master" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
@@ -46,6 +52,49 @@
 
 				<!-- Main -->
 					<div id="main">
+                        
+                        <article class="post featured">
+                            <header class="major">
+                                <h2><a href="https://apps.apple.com/us/app/orf-on/id452214869?platform=iphone">ORF ON</a></h2>
+                                
+                            </header>
+                            <p style="text-align:center;">iPhone/iPad and tvOS app</p>
+                            <a href="https://apps.apple.com/us/app/orf-on/id452214869?platform=iphone" class="image main"><img src="images/ORF_ON_iOS.png" alt="ORF ON — iOS app screenshots" />
+                            <a href="https://apps.apple.com/us/app/orf-on/id452214869?platform=appleTV" class="image main"><img src="images/ORF_ON_tvOS.png" alt="ORF ON — tvOS app screenshots" /></a>
+
+                            <p>Worked on <strong>ORF&nbsp;ON</strong>, the streaming platform of <strong>ORF</strong> — Austria’s public broadcaster and largest media provider — delivering live and on-demand video across iOS (iPhone/iPad) and tvOS (Apple&nbsp;TV).</p>
+
+                            <p><strong>Tech &amp; architecture</strong></p>
+                            <ul style="text-align:left;">
+                              <li>Swift, UIKit; reactive programming with <em>RxSwift/RxCocoa</em></li>
+                              <li>Clean architecture: <em>MVVM</em> with Coordinators; modularization via Swift Package Manager</li>
+                              <li>Custom player stack: <em>AVFoundation/AVPlayer</em> with Bitmovin Player; HLS streaming</li>
+                              <li>Networking with <em>URLSession/REST</em>; feature flags via Firebase Remote Config; diagnostics via Firebase Crashlytics</li>
+                              <li>Release tooling with Fastlane/TestFlight; agile, sprint-based workflow</li>
+                              <li>Accessibility on iOS &amp; tvOS (VoiceOver, tvOS Focus Engine)</li>
+                            </ul>
+
+                            <p><strong>What I owned &amp; solved</strong></p>
+                            <ul style="text-align:left;">
+                              <li>Contributed significantly to a major relaunch (design overhaul, component library, shared iOS/tvOS code paths)</li>
+                              <li>Designed/implemented reactive data pipelines to remove race conditions and improve main-thread responsiveness</li>
+                              <li>Integrated and customized the video player stack to improve time-to-first-frame and seek smoothness across devices</li>
+                              <li>Hardened error handling, background refresh, and caching for resilient playback and smoother UX</li>
+                              <li>Led accessibility upgrades (VoiceOver labels/traits, Focus Engine tuning)</li>
+                              <li>Partnered with Design, Backend, and QA; drove code reviews and mentoring to keep quality and velocity high</li>
+                            </ul>
+
+                            <p><strong>Highlights</strong></p>
+                            <ul style="text-align:left;">
+                              <li>Relaunched the apps as <strong>ORF&nbsp;ON</strong> (successor to ORF-TVthek), shipping on both iOS and tvOS</li>
+                              <li>Ongoing delivery of new features and performance improvements after launch</li>
+                              <li>Production stack centered on Swift + RxSwift/RxCocoa, MVVM/Coordinators, and AVFoundation/Bitmovin</li>
+                            </ul>
+                            <ul class="actions special">
+                                <li><a href="https://apps.apple.com/us/app/orf-on/id452214869?platform=iphone" class="button large">Check it out</a></li>
+                            </ul>
+                            
+                        </article>
 
 						<!-- Featured Post -->
 							<article class="post featured">
@@ -56,29 +105,28 @@
 								<p style="text-align:center;">iPhone and iPad app</p>
 								<a href="https://apps.apple.com/us/app/qixxit-train-bus-flight/id1233794600" class="image main"><img src="images/qixxit screenshot.png" alt="" /></a>
 
-								<p>The app was built from scratch by me and my teammate while I was working in QT Mobilitätsservice GmbH (Qixxit) in Berlin.</p>
-								<ul style="text-align:left;">
-										<li>Apple Pay</li>
-										<li>Completely written in Swift</li>
-										<li>VIPER architecture</li>
-										<li>SocketServer</li>
-										<li>RESTful API</li>
-										<li>Functional Programming with ReactiveSwift and RectiveCocoa</li>
-										<li>Google maps with custom drawings</li>
-										<li>Push Notifications</li>
-										<li>Firebase for storage and remote config</li>
-										<li>Fabric and Circle CI for internal release</li>
-									  </ul>
-								
-								<p>Our iOS app was featured multiple times by Apple and we were partners with Apple in launching Apple Pay in Germany. We also got invited to the closed Apple Developer Event in Berlin in 2018.<br /><br />
-									The most challenging and interesting features I developed was the implementation of sorting and filtering of itineraries. <br /><br />
-									The challenge was that we were using socket connection with backend for receiving results, meaning results were coming constantly throughout some time. Filtering and sorting must be done on the fly any time we got a new bunch of results and also any time user changes his filter and sorting options, which can happen while we are still receiving results.<br /><br />
-									I used functional programming with ReactiveSwift to solve this problem. I made all filters and sorters to be properties that emit en event on change and subscribed them all to one listener that reacts with recalculation and UI update.<br /><br />
-									Sorting and filtering was successfully implemented. With time the number of filters and sorters were increased, code was easily maintainable and understandable for other team members.<br />
-									</p>
-								<ul class="actions special">
-									<li><a href="https://apps.apple.com/us/app/qixxit-train-bus-flight/id1233794600" class="button large">Check it out</a></li>
-								</ul>
+                                <p>Built the Qixxit iOS app from scratch with one teammate — an intermodal travel planner for Germany and Europe.</p>
+
+                                <p><strong>Tech &amp; architecture</strong></p>
+                                <ul style="text-align:left;">
+                                  <li>Swift-only codebase, VIPER modules, strongly typed networking (REST/URLSession)</li>
+                                  <li>Functional/reactive flows with ReactiveSwift and ReactiveCocoa</li>
+                                  <li>WebSocket-based results stream for trip searches; Google Maps with custom overlays; Push Notifications</li>
+                                  <li>Apple Pay integration; Firebase for Remote Config (and later storage/sync)</li>
+                                  <li>CI/release tooling with Fabric and CircleCI</li>
+                                </ul>
+
+                                <p><strong>What I owned &amp; solved</strong></p>
+                                <ul style="text-align:left;">
+                                  <li>Designed the sorting &amp; filtering pipeline for itineraries on a continuous socket feed. Results arrived incrementally while users could change filters/sort at any time; I modeled filters and sorters as composable reactive properties and combined them via ReactiveSwift so each update — either from the backend or the UI — triggered deterministic recomputation and smooth UI updates. The approach scaled as we added new criteria and remained easy for teammates to extend.</li>
+                                </ul>
+
+                                <p><strong>Recognition &amp; partnerships</strong></p>
+                                <ul style="text-align:left;">
+                                  <li>Featured multiple times by Apple; partnered with Apple during the Apple Pay launch in Germany (Dec 2018)</li>
+                                </ul>
+
+                                <p><em>Note:</em> After I left the company, QT Mobilitätsservice GmbH (Qixxit) was acquired and the project was later discontinued; the Qixxit app is no longer available on the App Store.</p>
 								
 							</article>
 
@@ -86,26 +134,25 @@
 							<section class="posts">
 							<article>
 									<header class="major">
-										<h2><a href="https://apps.apple.com/app/you-owe-me-short-term-loans/id1147058670?l=en">You owe me -<br />
-										Money Borrower</a></h2>
+										<h2><a href="https://apps.apple.com/app/you-owe-me-short-term-loans/id1147058670?l=en">Loan Tracker: You Owe Me</a></h2>
 										
 									</header>
-									<p style="text-align:center;">iPhone app</p>
+									<p style="text-align:center;">iPhone/iPad app</p>
 									<a href="https://apps.apple.com/app/you-owe-me-short-term-loans/id1147058670?l=en" class="image main"><img src="images/you_owe_me_2025.png" alt="" /></a>
-									<p>My own app, live in App Store with a lot of reviews. The app has in-app purchases and brings me revenue every month. Everything is done by me: from screenshots and design to marketing using ASO with keywords.<br /><br />
-										The idea of the app is to have a place to log all of your borrowings with your friends, so you never forget who owes to whom.</p>
+                                    <p>My own app, live on the App Store with over 420 ratings and a 4.5★ average. The app includes in-app purchases and generates recurring monthly revenue. Everything is built and managed by me — from coding and architecture to screenshots, design, and App Store Optimization (ASO with keywords).<br /><br />
+                                    The idea of the app is to have a place to log all of your borrowings with your friends, so you never forget who owes to whom.</p>
 
-										<ul style="text-align:left;">
-												<li>Completely written in Swift</li>
-												<li>Core Data</li>
-												<li>User authentication with Face ID and Touch ID</li>
-												<li>Haptic feedback</li>
-												<li>Non-Consumable In-App Purchases</li>
-												<li>Promoting In-App Purchases</li>
-												<li>3D Touch Quick Action shortcuts</li>
-												<li>Very nice one screen design</li>
-											  </ul>
-											  <p>When I was on closed Apple Developer event I consulted with Apple experts about this app and gain a lot of insights, that I later used to improve user experience and UI.</p>
+                                    <ul style="text-align:left;">
+                                      <li>Completely written in Swift</li>
+                                      <li>Log and split expenses with friends; instant one-tap tally sharing</li>
+                                      <li>Sync across devices with Firebase backend</li>
+                                      <li>Multi-account support (similar to Instagram)</li>
+                                      <li>Apple Sign-In and biometric authentication (Face ID/Touch ID)</li>
+                                      <li>Core Data for offline reliability</li>
+                                      <li>Subscriptions and non-consumable IAPs with promotion support</li>
+                                      <li>Haptic feedback, 3D Touch Quick Actions, simple one-screen design</li>
+                                    </ul>
+                                    <p>Consulted with Apple experts at a closed Developer event, applying their feedback to improve UX and UI. Continuously updated over 9+ years, adding new features and refining design. Generates steady monthly revenue with a growing user base.</p>
 
 									<ul class="actions special">
 										<li><a href="https://apps.apple.com/app/you-owe-me-short-term-loans/id1147058670?l=en" class="button large">Check it out</a></li>
@@ -114,27 +161,26 @@
 								</article>
 								<article>
 									<header>
-										<h2><a href="https://apps.apple.com/us/app/cortex-notes-organizer/id1445383725?l=en">Cortex: notes organizer</a></h2>
+										<h2><a href="https://apps.apple.com/us/app/cortex-notes-organizer/id1445383725?l=en">Cortex: Notes Organizer</a></h2>
 									</header>
 										<p style="text-align:center;">iPad app</p>
 									
 									<a href="https://apps.apple.com/us/app/cortex-notes-organizer/id1445383725?l=en" class="image fit"><img src="images/Cortex screenshot.png" alt="" /></a>
-									<p>My own app, live in the App Store.<br /><br />
-										The goal of Cortex app is to structure and organization your notes to make them easy to find. <br /><br />
-										It uses a mixed organizational structure: Folders and Tags. So the note can be in a few folders simultaneously, which makes it very easy to find, and no structuring by hand needed.<br />
-										
-									</p>
+                                    <p>My own app, live on the App Store.<br /><br />
+                                    The goal of the Cortex app is to structure and <strong>organize</strong> your notes so they’re easy to find.<br /><br />
+                                    It uses a mixed organizational model: folders and tags, so a single note can live in multiple folders at once — no manual restructuring needed.</p>
 
-									<ul style="text-align:left;">
-											<li>Completely written in Swift</li>
-											<li>VIPER architecture</li>
-											<li>Text analysis with IBM Watson NaturalLanguageUnderstandingV1 API</li>
-											<li>Advanced search with NSLinguisticTagger</li>
-											<li>Core Data</li>
-											<li>Consumable In-App Purchases</li>
-										  </ul>
-										  <p>For tagging the notes Natural Language Understanding API from IBM Watson was used. I am using Concept, Entity, and Category to get the best tags options to the user.<br /><br />
-											For an advanced search, NSLinguisticTagger is used with Lemma and Language schemes. Which means it will find the same word in a different forms, like say you have entered a word `walk` and it will find `walking` and `walked`. Also, it will find the same word in different languages.</p>
+                                    <ul style="text-align:left;">
+                                      <li>Completely written in Swift</li>
+                                      <li>VIPER architecture</li>
+                                      <li>Text analysis with IBM Watson <strong>Natural Language Understanding (NLU) API</strong></li>
+                                      <li>Advanced search with <code>NSLinguisticTagger</code></li>
+                                      <li>Core Data</li>
+                                      <li>Consumable In-App Purchases</li>
+                                    </ul>
+
+                                    <p>For tagging, I use IBM Watson’s NLU (Concepts, Entities, Categories) to suggest relevant tags to the user.<br /><br />
+                                    For advanced search, <code>NSLinguisticTagger</code> uses lemma and language schemes — enter “walk” and it can match “walking” or “walked”, and it works across languages.</p>
 
 									<ul class="actions special">
 										<li><a href="https://apps.apple.com/us/app/cortex-notes-organizer/id1445383725?l=en" class="button">Check it out</a></li>
@@ -146,18 +192,18 @@
 									</header>
 									<p style="text-align:center;">iPhone and Apple Watch app</p>
 									<a href="https://apps.apple.com/us/app/process-log-hours-worked/id1364322942" class="image fit"><img src="images/Process screenshot.png" alt="" /></a>
-									<p>My own app, live in the App Store.<br /><br />
-										The idea under the app is to help focus on the work required to get to your goals. So instead of thinking about your goal, you calculate how much time of work you need to put every day and every week and just focus on that. This is your process. Don't worry about the results, focus on doing the process over and over. If you keep on doing the process, you're going to eventually get the results.<br /><br />
-										The app also has its counterpart on Apple Watch, including support for all complications.
-									</p>
-									<ul style="text-align:left;">
-											<li>Completely written in Swift</li>
-											<li>Widget</li>
-											<li>Core Data</li>
-											<li>Local UserNotifications with remiders</li>
-											<li>Non-Consumable In-App Purchases</li>
-											<li>Promoting In-App Purchases</li>
-										  </ul>
+                                    <p>My own app, live on the App Store.<br /><br />
+                                    The idea behind the app is to help you focus on the work required to reach your goals. Instead of fixating on the outcome, you estimate the daily/weekly time you need to put in and focus on that. This is your process — keep doing the process, and the results follow.<br /><br />
+                                    The app also has an Apple Watch companion, including support for all complications.</p>
+
+                                    <ul style="text-align:left;">
+                                      <li>Completely written in Swift</li>
+                                      <li>Widgets</li>
+                                      <li>Core Data</li>
+                                      <li>Local notifications with <strong>reminders</strong></li>
+                                      <li>Non-consumable In-App Purchases</li>
+                                      <li>Promoted In-App Purchases</li>
+                                    </ul>
 									<ul class="actions special">
 										<li><a href="https://apps.apple.com/us/app/process-log-hours-worked/id1364322942" class="button">Check it out</a></li>
 									</ul>
@@ -169,16 +215,15 @@
 									</header>
 									<p style="text-align:center;">iPhone app</p>
 									<a href="https://apps.apple.com/us/app/wordbook-save-and-learn-words-with-your-own-dictionary/id1019372940" class="image fit"><img src="images/wordbook screenshot.png" alt="" /></a>
-									<p>My own app, live in the App Store.<br /><br />
-										WordBook is your own Dictionary with your own words. The app is for saving, learning and refreshing words in your memory with cards. You also can save audio for pronunciation.
-									</p>
+                                    <p>My own app, live on the App Store.<br /><br />
+                                    WordBook is your own dictionary for saving, learning, and refreshing words with card-based practice. You can also save audio for pronunciation.</p>
 									<ul style="text-align:left;">
 											<li>Completely written in Swift</li>
 											<li>AVFoundation</li>
 											<li>Core Data</li>
 											<li>Non-Consumable In-App Purchases</li>
 										  </ul>
-										  <p>Search supported in both languages.</p>
+                                    <p>Search is supported in both languages.</p>
 									<ul class="actions special">
 										<li><a href="https://apps.apple.com/us/app/wordbook-save-and-learn-words-with-your-own-dictionary/id1019372940" class="button">Check it out</a></li>
 									</ul>
@@ -189,7 +234,7 @@
 									</header>
 									<p style="text-align:center;">iPhone and iPad app</p>
 									<a href="https://apps.apple.com/us/app/fragmenter/id1039737982" class="image fit"><img src="images/fragmenter screenshot.png" alt="" /></a>
-									<p>My own app, live in the App Store.<br /><br />
+									<p>My own app, live on the App Store.<br /><br />
 										!Fragmenter is a social networking app - online diary.</p>
 									<ul style="text-align:left;">
 											<li>Completely written in Swift</li>
@@ -210,7 +255,7 @@
 									</header>
 									<p style="text-align:center;">iPhone and iPad app</p>
 									<a href="https://apps.apple.com/us/app/funny-voices-make-record-audio-to-playback-funny-effects/id1021211618" class="image fit"><img src="images/funny voices screenshot.png" alt="" /></a>
-									<p>My own app, live in the App Store.<br /><br />
+									<p>My own app, live on the App Store.<br /><br />
 										The app records your voice and plays it with different sound effects.</p>
 										<ul style="text-align:left;">
 												<li>Completely written in Swift</li>
@@ -237,7 +282,7 @@
 
 							<section>
 								<h3>Email</h3>
-								<p><a href="#">eugen_yablonski@yahoo.com</a></p>
+                                <p><a href="mailto:eugen_yablonski@yahoo.com">eugen_yablonski@yahoo.com</a></p>
 							</section>
 							<!--
 							<section>
@@ -254,9 +299,12 @@
 					</footer>
 
 				<!-- Copyright -->
-					<div id="copyright">
-						<ul><li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
-					</div>
+                <div id="copyright">
+                  <ul>
+                    <li>&copy; 2025 Ievgenii Iablonskyi</li>
+                    <li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+                  </ul>
+                </div>
 
 			</div>
 
