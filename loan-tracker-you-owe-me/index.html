@@ -22,6 +22,11 @@
     <link rel="stylesheet" href="../assets/css/main.css" />
     <noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
 
+    <!-- Remove the big "PORTFOLIO" header on this page only -->
+    <style>
+      #header { display: none !important; }
+    </style>
+
     <!-- Schema.org (SoftwareApplication) -->
     <script type="application/ld+json">
     {
@@ -36,13 +41,56 @@
       "description": "Loan tracker, IOU and debt app for friends, couples, families, roommates and small businesses. Track shared expenses, split bills, send AI-written follow-ups, set reminders, recurring entries, and interest rate."
     }
     </script>
+
+    <!-- Schema.org (FAQPage) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is YouOweMe?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "YouOweMe is a loan tracker and IOU app that helps you track debts, shared expenses, and repayments — so you always know who owes whom and how much."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is it good for tracking money between friends or roommates?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. It’s designed for shared expenses, splitting bills, and keeping a clear running balance between people."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can it help me ask someone to pay me back politely?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. AI Follow-Ups generates a ready-to-send message with a clear breakdown of what’s owed."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does it support recurring bills?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Use recurring entries and reminders for rent, subscriptions, utilities, and repeating payments."
+          }
+        }
+      ]
+    }
+    </script>
+
   </head>
 
   <body class="is-preload">
 
     <div id="wrapper" class="fade-in">
 
-      <!-- Header -->
+      <!-- Header intentionally hidden via CSS above -->
       <header id="header">
         <a href="../index.html" class="logo">Portfolio</a>
       </header>
@@ -50,7 +98,6 @@
       <!-- Nav -->
       <nav id="nav">
         <ul class="links">
-          <li><a href="../index.html">My apps</a></li>
           <li class="active"><a href="#">YouOweMe</a></li>
         </ul>
         <ul class="icons">
@@ -97,6 +144,33 @@
             <li>A simple tool for small business payments</li>
             <li>A clean alternative to spreadsheets for balances and reminders</li>
           </ul>
+
+          <hr />
+
+          <h2>Common use cases</h2>
+
+          <h3>Friends &amp; roommates</h3>
+          <ul>
+            <li>Split bills and shared expenses (equal or custom)</li>
+            <li>Keep a clear running balance so nobody forgets</li>
+            <li>Send polite reminders when it’s time to pay back</li>
+          </ul>
+
+          <h3>Couples &amp; families</h3>
+          <ul>
+            <li>Track shared spending and repayments over time</li>
+            <li>Stay transparent with instant summary sharing</li>
+            <li>Use reminders and recurring entries for regular payments</li>
+          </ul>
+
+          <h3>Small business / clients</h3>
+          <ul>
+            <li>Track simple client payments and repayments (without spreadsheets)</li>
+            <li>Use Interest Rate tracking for long-term or larger amounts</li>
+            <li>Follow up politely using AI Follow-Ups</li>
+          </ul>
+
+          <hr />
 
           <h2>Key features</h2>
 
@@ -160,6 +234,19 @@
           <ul class="actions special">
             <li><a href="https://apps.apple.com/app/you-owe-me-short-term-loans/id1147058670?l=en" class="button large">Get YouOweMe</a></li>
           </ul>
+
+          <hr />
+          <h2>Support</h2>
+          <p>
+            Support email:
+            <a href="mailto:eugen_yablonski@yahoo.com">eugen_yablonski@yahoo.com</a>
+          </p>
+          <p>
+            Privacy Policy:
+            <a href="https://docs.google.com/document/d/e/2PACX-1vT4eaJ9w54hqRGNHqwwEa7h6ASKQeHdfBZS-MpoblxHKtUioTNaetS-gSffs-zkrsfdSPNXzBYF0suS/pub" target="_blank" rel="noopener">
+              View Privacy Policy
+            </a>
+          </p>
 
         </article>
 
