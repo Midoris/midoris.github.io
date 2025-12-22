@@ -6,7 +6,8 @@
         "appID": "3YKZSY3MBA.com.midori.s.You-owe-me",
         "paths": [
           "/loan-tracker-you-owe-me",
-          "/loan-tracker-you-owe-me/*"
+          "/loan-tracker-you-owe-me/*",
+          "/loan-tracker-you-owe-me/redeem*"
         ]
       }
     ]
