@@ -113,10 +113,11 @@
           This code gives you a bonus inside the app (higher limits and extra access).
       </div>
       <div class="row">
-        <a class="btn primary"
-           href="https://apps.apple.com/app/id1147058670">
-          Install from App Store
-        </a>
+          <a class="btn primary"
+             href="https://apps.apple.com/app/id1147058670"
+             target="_blank" rel="noopener">
+            Install from App Store
+          </a>
       </div>
       <div class="hint">
         Once you install the app, please return here and continue with Step 2 below.
@@ -156,27 +157,51 @@
     </div>
   </div>
 
-<script>
-  const params = new URLSearchParams(window.location.search);
-  const code = (params.get("code") || "").trim();
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const code = (params.get("code") || "").trim();
 
-  const codeEl = document.getElementById("code");
-  const copyBtn = document.getElementById("copyBtn");
-  const openBtn = document.getElementById("openBtn");
+    const codeEl = document.getElementById("code");
+    const copyBtn = document.getElementById("copyBtn");
+    const openBtn = document.getElementById("openBtn");
 
-  codeEl.textContent = code || "No code found in this link";
-  openBtn.href = window.location.href;
+    codeEl.textContent = code || "No code found in this link";
 
-  copyBtn.addEventListener("click", async () => {
-    if (!code) return;
-    try {
-      await navigator.clipboard.writeText(code);
-      copyBtn.textContent = "Copied!";
-      setTimeout(() => (copyBtn.textContent = "Copy code"), 1200);
-    } catch {
-      alert("Please copy manually: " + code);
+    function buildOpenUrl() {
+      // Build from a clean URL so we don't keep adding params repeatedly
+      const u = new URL(window.location.origin + window.location.pathname);
+      u.searchParams.set("code", code);            // ensure code is present
+      u.searchParams.set("open", "1");             // make URL different
+      u.searchParams.set("t", String(Date.now())); // cache buster
+      return u.toString();
     }
-  });
-</script>
+
+    // Disable Step 2 + Copy if there is no code
+    if (!code) {
+      openBtn.textContent = "Open the app & redeem (missing code)";
+      openBtn.style.opacity = "0.5";
+      openBtn.style.pointerEvents = "none";
+      openBtn.style.cursor = "default";
+
+      copyBtn.disabled = true;
+      copyBtn.style.opacity = "0.5";
+      copyBtn.style.cursor = "default";
+    } else {
+      openBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        window.location.assign(buildOpenUrl());
+      });
+
+      copyBtn.addEventListener("click", async () => {
+        try {
+          await navigator.clipboard.writeText(code);
+          copyBtn.textContent = "Copied!";
+          setTimeout(() => (copyBtn.textContent = "Copy code"), 1200);
+        } catch {
+          alert("Please copy manually: " + code);
+        }
+      });
+    }
+  </script>
 </body>
 </html>
