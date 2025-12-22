@@ -167,15 +167,6 @@
 
     codeEl.textContent = code || "No code found in this link";
 
-    function buildOpenUrl() {
-      // Build from a clean URL so we don't keep adding params repeatedly
-      const u = new URL(window.location.origin + window.location.pathname);
-      u.searchParams.set("code", code);            // ensure code is present
-      u.searchParams.set("open", "1");             // make URL different
-      u.searchParams.set("t", String(Date.now())); // cache buster
-      return u.toString();
-    }
-
     // Disable Step 2 + Copy if there is no code
     if (!code) {
       openBtn.textContent = "Open the app & redeem (missing code)";
@@ -186,21 +177,11 @@
       copyBtn.disabled = true;
       copyBtn.style.opacity = "0.5";
       copyBtn.style.cursor = "default";
-    } else {
-      openBtn.addEventListener("click", (e) => {
-        e.preventDefault();
-        window.location.assign(buildOpenUrl());
-      });
-
-      copyBtn.addEventListener("click", async () => {
-        try {
-          await navigator.clipboard.writeText(code);
-          copyBtn.textContent = "Copied!";
-          setTimeout(() => (copyBtn.textContent = "Copy code"), 1200);
-        } catch {
-          alert("Please copy manually: " + code);
-        }
-      });
+    }
+      if (code) {
+        openBtn.href =
+          "https://midoris.github.io/loan-tracker-you-owe-me/redeem/?code=" +
+          encodeURIComponent(code);
     }
   </script>
 </body>
