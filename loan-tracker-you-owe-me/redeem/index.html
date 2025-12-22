@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Redeem code</title>
+  <style>
+    body { font-family: -apple-system, system-ui, sans-serif; margin: 24px; line-height: 1.35; }
+    .box { max-width: 520px; margin: 0 auto; }
+    .code { font-size: 22px; font-weight: 700; padding: 12px 14px; border: 1px solid #ddd; border-radius: 10px; background: #fafafa; word-break: break-all; }
+    button, a.btn { display: inline-block; padding: 12px 14px; border-radius: 10px; border: 0; font-weight: 600; text-decoration: none; }
+    button { cursor: pointer; }
+    .row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 14px; }
+    .primary { background: #111; color: #fff; }
+    .secondary { background: #eee; color: #111; }
+    .hint { margin-top: 14px; color: #444; }
+    .small { color: #666; font-size: 13px; margin-top: 18px; }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h1>Redeem your code</h1>
+    <p>Your code:</p>
+    <div id="code" class="code">—</div>
+
+    <div class="row">
+      <button id="copyBtn" class="secondary">Copy code</button>
+      <!-- TODO: Replace with your real App Store link -->
+      <a id="installBtn" class="btn primary" href="https://apps.apple.com/app/id1147058670">Install the app</a>
+    </div>
+
+    <p class="hint">
+      After installing, come back and tap <b>the same link</b> again — it will open the app and prefill the code.
+    </p>
+
+    <p class="small">
+      If the app opens but doesn’t go to Redeem, open the app → Settings → Redeem code and paste it.
+    </p>
+  </div>
+
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const code = params.get("code") || "";
+  const codeEl = document.getElementById("code");
+  const copyBtn = document.getElementById("copyBtn");
+
+  codeEl.textContent = code ? code : "No code in link";
+
+  copyBtn.addEventListener("click", async () => {
+    if (!code) return;
+    try {
+      await navigator.clipboard.writeText(code);
+      copyBtn.textContent = "Copied!";
+      setTimeout(() => copyBtn.textContent = "Copy code", 1200);
+    } catch (e) {
+      alert("Copy failed. Please copy manually: " + code);
+    }
+  });
+</script>
+</body>
+</html>
