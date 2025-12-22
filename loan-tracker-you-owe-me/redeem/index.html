@@ -177,11 +177,19 @@
       copyBtn.disabled = true;
       copyBtn.style.opacity = "0.5";
       copyBtn.style.cursor = "default";
-    }
-      if (code) {
-        openBtn.href =
-          "https://midoris.github.io/loan-tracker-you-owe-me/redeem/?code=" +
-          encodeURIComponent(code);
+    } else {
+      // ✅ IMPORTANT: make Step 2 a *custom scheme* link (works from this same page)
+      openBtn.href = "youoweme://redeem?code=" + encodeURIComponent(code);
+
+      copyBtn.addEventListener("click", async () => {
+        try {
+          await navigator.clipboard.writeText(code);
+          copyBtn.textContent = "Copied!";
+          setTimeout(() => (copyBtn.textContent = "Copy code"), 1200);
+        } catch {
+          alert("Please copy manually: " + code);
+        }
+      });
     }
   </script>
 </body>
