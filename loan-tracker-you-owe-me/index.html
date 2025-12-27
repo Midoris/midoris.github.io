@@ -61,6 +61,18 @@
       }
 
       /* Hero */
+      /* Hero screenshot: match rounded corners of other screenshots */
+      .lt-heroShot {
+        display: block;
+        border-radius: 16px;
+        overflow: hidden; /* important: rounds the image even if it scales */
+      }
+      .lt-heroShot img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+        
       .lt-hero {
         display: grid;
         grid-template-columns: 1.05fr 0.95fr;
@@ -118,6 +130,122 @@
       }
       .lt-featureGrid h3 { margin: 0 0 0.35rem 0; }
       .lt-featureGrid p { margin: 0; opacity: 0.9; }
+
+      /* Reviews (horizontal scroll) */
+      .lt-reviews {
+        margin-top: 1.5rem;
+      }
+
+      .lt-reviewsHeader {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 1rem;
+        margin-bottom: 0.75rem;
+      }
+
+      .lt-reviewsHeader h2 {
+        margin: 0;
+      }
+
+      .lt-reviewsHint {
+        font-size: 0.95rem;
+        opacity: 0.75;
+        white-space: nowrap;
+      }
+
+      .lt-reviewRail {
+        display: flex;
+        gap: 1rem;
+        overflow-x: auto;
+        padding: 0.25rem 0 0.75rem;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        align-items: stretch; /* make cards same height */
+      }
+
+      .lt-reviewRail::-webkit-scrollbar { height: 10px; }
+      .lt-reviewRail::-webkit-scrollbar-thumb {
+        background: rgba(255,255,255,0.15);
+        border-radius: 999px;
+      }
+      .lt-reviewRail::-webkit-scrollbar-track {
+        background: rgba(255,255,255,0.05);
+        border-radius: 999px;
+      }
+
+      /* ✅ Reviews: nicer background + same height + variable width */
+      .lt-reviewCard {
+        flex: 0 0 auto;                 /* variable width */
+        width: 340px;       /* starting width (JS will grow if needed) */
+        max-width: 920px;   /* upper bound so it doesn't get crazy-wide */
+        height: 340px;                  /* same height */
+        scroll-snap-align: start;
+        border-radius: 14px;
+
+        display: flex;
+        flex-direction: column;
+        position: relative;
+
+        border: 1px solid rgba(255,255,255,0.14);
+        background:
+          radial-gradient(1200px 400px at 10% 0%, rgba(245,200,75,0.10), rgba(0,0,0,0) 55%),
+          radial-gradient(900px 420px at 95% 20%, rgba(255,255,255,0.06), rgba(0,0,0,0) 60%),
+          rgba(255,255,255,0.035);
+        box-shadow:
+          0 10px 30px rgba(0,0,0,0.22),
+          0 1px 0 rgba(255,255,255,0.06) inset;
+      }
+
+      @media (max-width: 736px) {
+        .lt-reviewCard {
+          width: 86vw;
+          height: 360px;
+        }
+      }
+
+      .lt-reviewCard::before {
+        content: "“";
+        position: absolute;
+        top: 0.55rem;
+        right: 1.0rem;
+        font-size: 3.1rem;
+        line-height: 1;
+        opacity: 0.12;
+        pointer-events: none;
+      }
+
+      .lt-stars {
+        display: inline-flex;
+        gap: 0.15rem;
+        margin-bottom: 0.6rem;
+        font-size: 1.05rem;
+        line-height: 1;
+        flex: 0 0 auto;
+      }
+
+      .lt-star {
+        color: #f5c84b; /* gold */
+        text-shadow: 0 1px 10px rgba(245,200,75,0.15);
+      }
+
+        .lt-reviewText {
+          margin: 0;
+          opacity: 0.92;
+          flex: 1 1 auto;
+          overflow: hidden;
+
+          /* ✅ fix ugly stretched spaces */
+          text-align: left;
+          text-align-last: left;
+          text-justify: auto;
+          word-spacing: normal;
+
+          /* clamp so all cards stay same height */
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 12;
+        }
 
       /* Screenshot sections */
       .lt-section {
@@ -297,9 +425,84 @@
             </div>
 
             <div class="lt-card">
-              <a href="https://apps.apple.com/app/you-owe-me-short-term-loans/id1147058670?l=en" class="image main" style="margin: 0;">
+                <a href="https://apps.apple.com/app/you-owe-me-short-term-loans/id1147058670?l=en" class="image main lt-heroShot" style="margin: 0;">
                 <img src="../images/Start_screen_ready.png" alt="Loan Tracker: You Owe Me — iOS app screenshot" />
               </a>
+            </div>
+          </div>
+
+          <!-- REVIEWS -->
+          <div class="lt-reviews" aria-label="What people are saying">
+            <div class="lt-reviewsHeader">
+              <h2>What people are saying</h2>
+              <div class="lt-reviewsHint">Scroll →</div>
+            </div>
+
+            <div class="lt-reviewRail">
+
+              <div class="lt-card lt-reviewCard">
+                <div class="lt-stars" aria-label="5 out of 5 stars">
+                  <span class="lt-star">★</span><span class="lt-star">★</span><span class="lt-star">★</span><span class="lt-star">★</span><span class="lt-star">★</span>
+                </div>
+                <p class="lt-reviewText">This app is a lifesaver! I finally have an easy way to track money I’ve loaned or am owed. Setup is quick, the design is clean, and reminders keep me on top of everything without stress. No more awkward ‘you still owe me’ talks—just open the app and it’s all there. Simple, reliable, incredibly useful. Highly recommend!</p>
+              </div>
+
+              <div class="lt-card lt-reviewCard">
+                <div class="lt-stars" aria-label="5 out of 5 stars">
+                  <span class="lt-star">★</span><span class="lt-star">★</span><span class="lt-star">★</span><span class="lt-star">★</span><span class="lt-star">★</span>
+                </div>
+                <p class="lt-reviewText">Superb app. I purchased the Unlimited Entries and Members subscription, and it has everything a lender needs to keep clear records. Great interface and accessibility. Looking forward to new features!</p>
+              </div>
+
+              <div class="lt-card lt-reviewCard">
+                <div class="lt-stars" aria-label="5 out of 5 stars">
+                  <span class="lt-star">★</span><span class="lt-star">★</span><span class="lt-star">★</span><span class="lt-star">★</span><span class="lt-star">★</span>
+                </div>
+                <p class="lt-reviewText">There are a number of apps like this, but this one is the best so far. The simplest interface with solid functionality. I use it daily—everything in one clean screen.</p>
+              </div>
+              
+              <div class="lt-card lt-reviewCard">
+                <div class="lt-stars" aria-label="5 out of 5 stars">
+                  <span class="lt-star">★</span><span class="lt-star">★</span><span class="lt-star">★</span><span class="lt-star">★</span><span class="lt-star">★</span>
+                </div>
+                <p class="lt-reviewText">I usually judge apps by ratings and review counts, so I didn’t expect much—but I was wrong. From the first use, the layout stood out and performance was smooth. I reported a small bug through support; the developer replied quickly and fixed it in the next update. With its thoughtful design and responsive support, I confidently recommend this app to anyone tracking money they owe or are owed.</p>
+              </div>
+
+              <div class="lt-card lt-reviewCard">
+                <div class="lt-stars" aria-label="5 out of 5 stars">
+                  <span class="lt-star">★</span><span class="lt-star">★</span><span class="lt-star">★</span><span class="lt-star">★</span><span class="lt-star">★</span>
+                </div>
+                <p class="lt-reviewText">This app is super innovative and makes it easy to keep track of the money people owe you. Highly recommended!</p>
+              </div>
+
+              <div class="lt-card lt-reviewCard">
+                <div class="lt-stars" aria-label="5 out of 5 stars">
+                  <span class="lt-star">★</span><span class="lt-star">★</span><span class="lt-star">★</span><span class="lt-star">★</span><span class="lt-star">★</span>
+                </div>
+                <p class="lt-reviewText">One of the best apps to track your money—whether you’re lending or running a business. Simple, user-friendly, and it gets the job done.</p>
+              </div>
+
+              <div class="lt-card lt-reviewCard">
+                <div class="lt-stars" aria-label="5 out of 5 stars">
+                  <span class="lt-star">★</span><span class="lt-star">★</span><span class="lt-star">★</span><span class="lt-star">★</span><span class="lt-star">★</span>
+                </div>
+                <p class="lt-reviewText">Very good app 🙂 Nice design, easy to use, and straightforward. I can set a date and change it later for any loan. Everything else can be edited too. Very flexible.</p>
+              </div>
+
+              <div class="lt-card lt-reviewCard">
+                <div class="lt-stars" aria-label="5 out of 5 stars">
+                  <span class="lt-star">★</span><span class="lt-star">★</span><span class="lt-star">★</span><span class="lt-star">★</span><span class="lt-star">★</span>
+                </div>
+                <p class="lt-reviewText">I can keep track of everything—including money I take from savings that I plan to pay back. You can add a note to every transaction, and the developer added my currency in about three days after I asked! There are other apps, but this one is the most convenient and fairly priced.</p>
+              </div>
+
+              <div class="lt-card lt-reviewCard">
+                <div class="lt-stars" aria-label="5 out of 5 stars">
+                  <span class="lt-star">★</span><span class="lt-star">★</span><span class="lt-star">★</span><span class="lt-star">★</span><span class="lt-star">★</span>
+                </div>
+                <p class="lt-reviewText">I’ve tried several apps, but this one is the best!</p>
+              </div>
+
             </div>
           </div>
 
@@ -582,6 +785,43 @@
     </div>
 
     <!-- Scripts (go up one level) -->
+    <script>
+      (function () {
+        function fitReviews() {
+          const cards = document.querySelectorAll(".lt-reviewCard");
+          if (!cards.length) return;
+
+          const viewportMax = Math.floor(window.innerWidth * 0.9);
+          const MAX_W = Math.min(920, viewportMax);
+          const MIN_W = Math.min(340, MAX_W);
+          const STEP = 20;
+
+          cards.forEach(card => {
+            const p = card.querySelector(".lt-reviewText");
+            if (!p) return;
+
+            // reset first so resize works correctly
+            let w = MIN_W;
+            card.style.width = w + "px";
+
+            // widen until the paragraph fits (no vertical overflow) or we hit max
+            // p.clientHeight is the available height inside the card due to flex layout
+            while (w < MAX_W && p.scrollHeight > p.clientHeight + 1) {
+              w += STEP;
+              card.style.width = w + "px";
+            }
+          });
+        }
+
+        window.addEventListener("load", fitReviews);
+
+        let t;
+        window.addEventListener("resize", () => {
+          clearTimeout(t);
+          t = setTimeout(fitReviews, 150);
+        });
+      })();
+    </script>
     <script src="../assets/js/jquery.min.js"></script>
     <script src="../assets/js/jquery.scrollex.min.js"></script>
     <script src="../assets/js/jquery.scrolly.min.js"></script>
