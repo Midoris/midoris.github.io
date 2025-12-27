@@ -100,7 +100,7 @@
 
         @media (max-width: 736px) {
           .lt-featureCard {
-            width: 86vw;
+              width: 80vw;   /* was 86vw */
             height: 128px;
           }
         }
@@ -310,7 +310,7 @@
 
       @media (max-width: 736px) {
         .lt-reviewCard {
-          width: 86vw;
+            width: 78vw;   /* was 86vw */
           height: 360px;
         }
       }
@@ -417,6 +417,32 @@
       /* ---------------------------
          Mobile polish (easy wins)
       --------------------------- */
+        
+        @media (max-width: 736px) {
+          .lt-reviewRail,
+          .lt-featureRail {
+            padding-left: 0.75rem;
+            padding-right: 0.75rem;
+            scroll-padding-left: 0.75rem;
+            scroll-padding-right: 0.75rem;
+
+            -webkit-mask-image: linear-gradient(
+              to right,
+              transparent 0,
+              #000 24px,
+              #000 calc(100% - 54px),
+              transparent 100%
+            );
+            mask-image: linear-gradient(
+              to right,
+              transparent 0,
+              #000 24px,
+              #000 calc(100% - 54px),
+              transparent 100%
+            );
+          }
+        }
+        
       @media (max-width: 736px) {
 
         /* Slightly tighter page padding (article width already becomes 100%-2rem) */
@@ -450,7 +476,8 @@
         /* Reviews rail: nicer edge-to-edge feel */
         .lt-reviewRail {
           padding: 0.25rem 0 0.75rem;
-          scroll-padding-left: 0.5rem;
+          scroll-padding-left: 0.75rem; /* match mask block */
+          scroll-padding-right: 0.75rem;
         }
 
         /* Optional: hide the “Scroll →” hint on mobile (it competes for space) */
