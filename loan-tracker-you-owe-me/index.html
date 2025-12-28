@@ -1027,7 +1027,18 @@
     <!-- Scripts (go up one level) -->
     <script>
       (function () {
+        const mqDesktop = window.matchMedia("(min-width: 737px)");
+
         function fitReviews() {
+          // only apply on desktop
+          if (!mqDesktop.matches) {
+            // remove inline widths so CSS (74vw) wins on mobile
+            document.querySelectorAll(".lt-reviewCard").forEach(card => {
+              card.style.width = "";
+            });
+            return;
+          }
+
           const cards = document.querySelectorAll(".lt-reviewCard");
           if (!cards.length) return;
 
@@ -1040,12 +1051,9 @@
             const p = card.querySelector(".lt-reviewText");
             if (!p) return;
 
-            // reset first so resize works correctly
             let w = MIN_W;
             card.style.width = w + "px";
 
-            // widen until the paragraph fits (no vertical overflow) or we hit max
-            // p.clientHeight is the available height inside the card due to flex layout
             while (w < MAX_W && p.scrollHeight > p.clientHeight + 1) {
               w += STEP;
               card.style.width = w + "px";
@@ -1060,6 +1068,9 @@
           clearTimeout(t);
           t = setTimeout(fitReviews, 150);
         });
+
+        // handle breakpoint changes (rotation etc.)
+        mqDesktop.addEventListener?.("change", fitReviews);
       })();
     </script>
     <script src="../assets/js/jquery.min.js"></script>
