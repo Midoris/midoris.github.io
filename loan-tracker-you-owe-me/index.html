@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
   <head>
-      <title>Loan Tracker: You Owe Me — Money Messages & Interest Rate</title>
+      <title>Loan Tracker: You Owe Me — Money Conversations & Interest Rate</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 
@@ -18,12 +18,12 @@
     <link rel="canonical" href="https://midoris.github.io/loan-tracker-you-owe-me/" />
 
     <!-- SEO description (AI-readable) -->
-    <meta name="description" content="YouOweMe is a loan tracker, IOU and debt app for friends, couples, families, roommates and small businesses. Track shared expenses, split bills, generate ready-to-send Money Messages (follow-ups + repayment updates), set reminders, and track interest." />
+    <meta name="description" content="YouOweMe is a loan tracker, IOU and debt app for friends, couples, families, roommates and small businesses. Track shared expenses, split bills, generate ready-to-send Money Conversations (follow-up, ask for loan, repayment update), create professional PDF statements, set reminders, and track interest." />
     <meta name="article:author" content="Ievgenii Iablonskyi" />
 
     <!-- Open Graph -->
-    <meta property="og:title" content="Loan Tracker: You Owe Me — Money Messages & Interest Rate" />
-    <meta property="og:description" content="Track loans, IOUs and shared expenses. Split bills, generate ready-to-send Money Messages (follow-ups + repayment updates), set reminders, and track interest." />
+    <meta property="og:title" content="Loan Tracker: You Owe Me — Money Conversations & Interest Rate" />
+    <meta property="og:description" content="Track loans, IOUs and shared expenses. Split bills, generate ready-to-send Money Conversations (follow-up, ask for loan, repayment update), create professional PDF statements, set reminders, and track interest." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://midoris.github.io/loan-tracker-you-owe-me/" />
     <meta property="og:image" content="https://midoris.github.io/images/you_owe_me_2025.png" />
@@ -32,468 +32,8 @@
     <link rel="stylesheet" href="../assets/css/main.css" />
     <noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
 
-    <!-- Remove the big "PORTFOLIO" header on this page only -->
-    <style>
-        /* Feature rail (like reviews) */
-        .lt-featureRailWrap {
-          margin-top: 1.5rem;
-        }
-
-        .lt-featureRail {
-          display: flex;
-          gap: 1rem;
-          overflow-x: auto;
-          padding: 0.25rem 0.75rem 0.75rem;
-          scroll-snap-type: x mandatory;
-          -webkit-overflow-scrolling: touch;
-          align-items: stretch;
-        }
-
-        .lt-featureRail::-webkit-scrollbar { height: 10px; }
-        .lt-featureRail::-webkit-scrollbar-thumb {
-          background: rgba(255,255,255,0.15);
-          border-radius: 999px;
-        }
-        .lt-featureRail::-webkit-scrollbar-track {
-          background: rgba(255,255,255,0.05);
-          border-radius: 999px;
-        }
-
-        
-
-        /* Feature cards: make them feel like the review cards (but greener/neutral) */
-        .lt-featureCard {
-          flex: 0 0 auto;
-          width: 260px;
-          height: 120px;                 /* consistent “card” feel */
-          scroll-snap-align: start;
-          border-radius: 14px;
-
-          display: grid;
-          grid-template-columns: 44px 1fr;
-          gap: 0.85rem;
-          align-items: center;
-
-          border: 1px solid rgba(255,255,255,0.14);
-          background:
-          radial-gradient(900px 260px at 12% 0%, rgba(175,230,126,0.12), rgba(0,0,0,0) 55%),
-            radial-gradient(700px 280px at 95% 25%, rgba(255,255,255,0.06), rgba(0,0,0,0) 60%),
-            rgba(255,255,255,0.035);
-          box-shadow:
-            0 10px 28px rgba(0,0,0,0.22),
-            0 1px 0 rgba(255,255,255,0.06) inset;
-
-          padding: 1.0rem 1.0rem;
-          position: relative;
-          overflow: hidden;
-        }
-
-        /* Optional subtle “spark” like reviews, but not quotes */
-        .lt-featureCard::before {
-          content: "";
-          position: absolute;
-          inset: -1px;
-          background:
-          radial-gradient(500px 180px at 15% 20%, rgba(175,230,126,0.14), rgba(0,0,0,0) 55%);
-          opacity: 0.55;
-          pointer-events: none;
-        }
-
-        @media (max-width: 736px) {
-          .lt-featureCard {
-              width: 74vw;   /* was 86vw, 80 */
-            height: 128px;
-          }
-        }
-
-        .lt-featureIcon {
-          width: 44px;
-          height: 44px;
-          border-radius: 14px;
-          border: 1px solid rgba(255,255,255,0.14);
-          background:
-          radial-gradient(220px 120px at 30% 20%, rgba(175,230,126,0.20), rgba(0,0,0,0) 60%),
-            rgba(0,0,0,0.12);
-          display: grid;
-          place-items: center;
-          font-size: 1.05rem;
-          opacity: 0.98;
-          box-shadow: 0 8px 18px rgba(0,0,0,0.18);
-          position: relative;
-          z-index: 1; /* sit above ::before */
-        }
-
-        .lt-featureTitle {
-          margin: 0;
-          font-size: 1.02rem;
-          line-height: 1.25;
-          opacity: 0.94;
-          position: relative;
-          z-index: 1; /* sit above ::before */
-        }
-
-        /* Nice hover, desktop only-ish */
-        @media (hover: hover) {
-          .lt-featureCard:hover {
-            transform: translateY(-2px);
-            box-shadow:
-              0 14px 34px rgba(0,0,0,0.26),
-              0 1px 0 rgba(255,255,255,0.07) inset;
-          }
-        }
-
-        
-
-        
-        
-      #header { display: none !important; }
-
-      :root {
-        /* wider landing-page container */
-        --lt-max: 1280px;
-      }
-
-      /* Make the main content area feel like a landing page */
-      #main { padding-top: 0; }
-
-      /* Override HTML5UP's default fixed widths */
-      #main > * {
-        width: 100% !important;
-        max-width: none !important;
-      }
-
-      article.post.featured {
-        width: min(var(--lt-max), calc(100% - 4rem));
-        margin: 0 auto;
-      }
-      @media (max-width: 736px) {
-        article.post.featured {
-          width: calc(100% - 2rem);
-        }
-      }
-
-      /* Hero */
-      /* Hero screenshot: match rounded corners of other screenshots */
-      .lt-heroShot {
-        display: block;
-        border-radius: 16px;
-        overflow: hidden; /* important: rounds the image even if it scales */
-      }
-      .lt-heroShot img {
-        display: block;
-        width: 100%;
-        height: auto;
-      }
-        
-      .lt-hero {
-        display: grid;
-        grid-template-columns: 1.05fr 0.95fr;
-        gap: 2rem;
-        align-items: center;
-        margin-top: 1.5rem;
-      }
-      @media (max-width: 980px) {
-        .lt-hero { grid-template-columns: 1fr; }
-      }
-
-      .lt-badges {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.6rem;
-        margin: 0.75rem 0 1.25rem;
-      }
-      .lt-badge {
-        font-size: 0.85rem;
-        padding: 0.4rem 0.7rem;
-        border-radius: 999px;
-        border: 1px solid rgba(255,255,255,0.15);
-        background: rgba(255,255,255,0.05);
-      }
-
-      .lt-ctaRow {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.75rem;
-        align-items: center;
-        margin-top: 1.25rem;
-      }
-      .lt-note {
-        font-size: 0.95rem;
-        opacity: 0.85;
-        margin-top: 0.75rem;
-      }
-
-      /* Card blocks */
-      .lt-card {
-        border: 1px solid rgba(255,255,255,0.12);
-        background: rgba(255,255,255,0.04);
-        border-radius: 14px;
-        padding: 1.1rem 1.1rem;
-      }
-
-      .lt-featureGrid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 1rem;
-        margin-top: 1.25rem;
-      }
-      @media (max-width: 980px) {
-        .lt-featureGrid { grid-template-columns: 1fr; }
-      }
-      .lt-featureGrid h3 { margin: 0 0 0.35rem 0; }
-      .lt-featureGrid p { margin: 0; opacity: 0.9; }
-
-      /* Reviews (horizontal scroll) */
-      .lt-reviews {
-        margin-top: 1.5rem;
-      }
-
-      .lt-reviewsHeader {
-        display: flex;
-        align-items: baseline;
-        justify-content: space-between;
-        gap: 1rem;
-        margin-bottom: 0.75rem;
-      }
-
-      .lt-reviewsHeader h2 {
-        margin: 0;
-      }
-
-      .lt-reviewsHint {
-        font-size: 0.95rem;
-        opacity: 0.75;
-        white-space: nowrap;
-      }
-
-      .lt-reviewRail {
-        display: flex;
-        gap: 1rem;
-        overflow-x: auto;
-        padding: 0.25rem 0.75rem 0.75rem;
-        scroll-snap-type: x mandatory;
-        -webkit-overflow-scrolling: touch;
-        align-items: stretch; /* make cards same height */
-      }
-
-      .lt-reviewRail::-webkit-scrollbar { height: 10px; }
-      .lt-reviewRail::-webkit-scrollbar-thumb {
-        background: rgba(255,255,255,0.15);
-        border-radius: 999px;
-      }
-      .lt-reviewRail::-webkit-scrollbar-track {
-        background: rgba(255,255,255,0.05);
-        border-radius: 999px;
-      }
-
-      /* ✅ Reviews: nicer background + same height + variable width */
-      .lt-reviewCard {
-        flex: 0 0 auto;                 /* variable width */
-        width: 340px;       /* starting width (JS will grow if needed) */
-        max-width: 920px;   /* upper bound so it doesn't get crazy-wide */
-        height: 340px;                  /* same height */
-        scroll-snap-align: start;
-        border-radius: 14px;
-
-        display: flex;
-        flex-direction: column;
-        position: relative;
-
-        border: 1px solid rgba(255,255,255,0.14);
-        background:
-          radial-gradient(1200px 400px at 10% 0%, rgba(245,200,75,0.10), rgba(0,0,0,0) 55%),
-          radial-gradient(900px 420px at 95% 20%, rgba(255,255,255,0.06), rgba(0,0,0,0) 60%),
-          rgba(255,255,255,0.035);
-        box-shadow:
-          0 10px 30px rgba(0,0,0,0.22),
-          0 1px 0 rgba(255,255,255,0.06) inset;
-      }
-
-      @media (max-width: 736px) {
-        .lt-reviewCard {
-            width: 74vw;   /* was 86vw, 78 */
-          height: 360px;
-        }
-      }
-
-      .lt-reviewCard::before {
-        content: "“";
-        position: absolute;
-        top: 0.55rem;
-        right: 1.0rem;
-        font-size: 3.1rem;
-        line-height: 1;
-        opacity: 0.12;
-        pointer-events: none;
-      }
-
-      .lt-stars {
-        display: inline-flex;
-        gap: 0.15rem;
-        margin-bottom: 0.6rem;
-        font-size: 1.05rem;
-        line-height: 1;
-        flex: 0 0 auto;
-      }
-
-      .lt-star {
-        color: #f5c84b; /* gold */
-        text-shadow: 0 1px 10px rgba(245,200,75,0.15);
-      }
-
-        .lt-reviewText {
-          margin: 0;
-          opacity: 0.92;
-          flex: 1 1 auto;
-          overflow: hidden;
-
-          /* ✅ fix ugly stretched spaces */
-          text-align: left;
-          text-align-last: left;
-          text-justify: auto;
-          word-spacing: normal;
-
-          /* clamp so all cards stay same height */
-          display: -webkit-box;
-          -webkit-box-orient: vertical;
-          -webkit-line-clamp: 12;
-        }
-
-      /* Screenshot sections */
-      .lt-section {
-        margin: 2.5rem 0;
-      }
-      .lt-snap {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 2rem;
-        align-items: center;
-      }
-      .lt-snap.reverse { direction: rtl; }
-      .lt-snap.reverse > * { direction: ltr; }
-      @media (max-width: 980px) {
-        .lt-snap { grid-template-columns: 1fr; }
-        .lt-snap.reverse { direction: ltr; }
-      }
-      .lt-imgWrap {
-        border-radius: 16px;
-        overflow: hidden;
-        border: 1px solid rgba(255,255,255,0.12);
-        background: rgba(0,0,0,0.12);
-      }
-      .lt-imgWrap img {
-        width: 100%;
-        height: auto;
-        display: block;
-      }
-      .lt-kicker {
-        font-size: 0.9rem;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-        opacity: 0.7;
-        margin-bottom: 0.35rem;
-      }
-
-      /* Sticky mini-CTA on mobile */
-      .lt-stickyCTA {
-        display: none;
-        position: sticky;
-        bottom: 0;
-        z-index: 50;
-        margin: 1.25rem -2rem -2rem;
-        padding: 0.9rem 1.25rem;
-        background: rgba(10,10,10,0.88);
-        border-top: 1px solid rgba(255,255,255,0.12);
-        backdrop-filter: blur(10px);
-      }
-      .lt-stickyCTA a.button { width: 100%; }
-      @media (max-width: 736px) {
-        .lt-stickyCTA { display: block; }
-      }
-
-      /* Make HR a bit cleaner */
-      hr { opacity: 0.35; }
-      
-      
-      /* ---------------------------
-         Mobile polish (easy wins)
-      --------------------------- */
-        
-        @media (max-width: 736px) {
-          .lt-reviewRail,
-          .lt-featureRail {
-            padding-left: 0.75rem;
-            padding-right: 0.75rem;
-            scroll-padding-left: 0.75rem;
-            scroll-padding-right: 0.75rem;
-
-            -webkit-mask-image: linear-gradient(
-              to right,
-              transparent 0,
-              #000 24px,
-              #000 calc(100% - 54px),
-              transparent 100%
-            );
-            mask-image: linear-gradient(
-              to right,
-              transparent 0,
-              #000 24px,
-              #000 calc(100% - 54px),
-              transparent 100%
-            );
-          }
-        }
-        
-      @media (max-width: 736px) {
-
-        /* Slightly tighter page padding (article width already becomes 100%-2rem) */
-        article.post.featured { padding-left: 0; padding-right: 0; }
-
-        /* Hero: reduce vertical “air” */
-        .lt-hero { gap: 1.25rem; margin-top: 1rem; }
-
-        /* Make CTAs finger-friendly: full width stack */
-        .lt-ctaRow {
-          flex-direction: column;
-          align-items: stretch;
-          gap: 0.6rem;
-        }
-        .lt-ctaRow .button {
-          width: 100%;
-          text-align: center;
-          padding: 0.9rem 1rem; /* slightly taller tap target */
-        }
-
-        /* Badges: smaller + tighter */
-        .lt-badges { gap: 0.45rem; margin: 0.6rem 0 1rem; }
-        .lt-badge { font-size: 0.8rem; padding: 0.35rem 0.6rem; }
-
-        /* Cards: a bit less padding on small screens */
-        .lt-card { padding: 0.95rem; }
-
-        /* Feature grid: keep spacing nice */
-        .lt-featureGrid { gap: 0.85rem; }
-
-        /* Reviews rail: nicer edge-to-edge feel */
-        .lt-reviewRail {
-          padding: 0.25rem 0.75rem 0.75rem;
-          scroll-padding-left: 0.75rem;
-          scroll-padding-right: 0.75rem;
-        }
-
-        /* Optional: hide the “Scroll →” hint on mobile (it competes for space) */
-        .lt-reviewsHint { display: none; }
-
-        /* Text blocks: slightly tighter for mobile readability */
-        p { line-height: 1.55; }
-      }
-
-      /* Extra small phones */
-      @media (max-width: 420px) {
-        h1 { font-size: 1.85rem; }
-        .lt-note { font-size: 0.9rem; }
-      }
-    </style>
+    <!-- Landing page styles (extracted from inline CSS) -->
+    <link rel="stylesheet" href="./styles/landing.css" />
 
     <!-- Schema.org (SoftwareApplication) -->
     <script type="application/ld+json">
@@ -506,7 +46,7 @@
       "operatingSystem": "iOS",
       "url": "https://midoris.github.io/loan-tracker-you-owe-me/",
       "downloadUrl": "https://apps.apple.com/app/you-owe-me-short-term-loans/id1147058670?l=en",
-      "description": "Loan tracker, IOU and debt app for friends, couples, families, roommates and small businesses. Track shared expenses, split bills, send AI-written follow-ups, set reminders, recurring entries, and interest rate."
+      "description": "Loan tracker, IOU and debt app for friends, couples, families, roommates and small businesses. Track shared expenses, split bills, generate Money Conversations (follow-up, ask for loan, repayment update), and create professional PDF statements, with reminders, recurring entries, and interest tracking."
     }
     </script>
 
@@ -534,10 +74,18 @@
         },
         {
           "@type": "Question",
-          "name": "Can it help me ask someone to pay me back politely?",
+            "name": "Can it help me ask someone to pay me back politely?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+            "text": "Yes. Money Conversations can generate a follow-up message with a clear balance breakdown in a tone that fits your relationship."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can it help me ask for a loan clearly and respectfully?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. Money Messages generates a ready-to-send follow-up or repayment update with a clear breakdown of what’s owed and what changed."
+            "text": "Yes. You can generate an Ask for Loan message from your real context, choose a tone, and send a clear request without awkward wording."
           }
         },
         {
@@ -546,6 +94,14 @@
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "Yes. Use recurring entries and reminders for rent, subscriptions, utilities, and repeating payments."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I generate professional PDF statements?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. You can generate clean, shareable PDF statements from your records, with an option to add your own logo or image."
           }
         }
       ]
@@ -567,11 +123,6 @@
         <ul class="links">
           <li class="active"><a href="#">YouOweMe</a></li>
         </ul>
-        <ul class="icons">
-          <li><a href="https://github.com/Midoris" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-          <li><a href="https://www.linkedin.com/in/ievgenii-iablonskyi-7687a511a/" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
-          <li><a href="https://twitter.com/EugenYablonski" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-        </ul>
       </nav>
 
       <!-- Main -->
@@ -584,23 +135,23 @@
             <div>
               <header class="major" style="margin-bottom: 0.75rem;">
                 <h1 style="margin-bottom: 0.35rem;">Loan Tracker: You Owe Me</h1>
-                <p style="margin: 0;"><strong>Money Messages &amp; Interest Rate</strong></p>
+                <p style="margin: 0;"><strong>IOUs &amp; Money Messages</strong></p>
               </header>
 
               <p style="margin-top: 0;">
-                Stop losing money over forgotten <strong>loans</strong> — and stop stressing about what to say when it’s time to get paid back.
+                Stop losing money over forgotten <strong>loans</strong> — and stop stressing about what to say when money is involved.
               </p>
 
               <p>
                 <strong>YouOweMe</strong> is built for real life: ongoing balances, partial repayments, shared expenses, and the awkward conversations that come with them.
-                Track who owes whom, keep everything clear, and use Money Messages to generate ready-to-send texts for awkward moments — follow-ups and repayment updates — in a tone that fits your relationship.
+                Track who owes whom, keep everything clear, and use Money Conversations to generate ready-to-send texts for real situations: follow-up, ask for loan, and repayment update — in a tone that fits your relationship.
+                When you need something formal, generate professional PDF statements from your records.
               </p>
 
               <div class="lt-ctaRow">
-                <a href="https://apps.apple.com/app/you-owe-me-short-term-loans/id1147058670?l=en" class="button large">
-                  Download on the App Store
+                <a href="https://apps.apple.com/app/you-owe-me-short-term-loans/id1147058670?l=en" class="lt-appStoreBtn" aria-label="Download on the App Store">
+                  <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download on the App Store" />
                 </a>
-                <a href="#features" class="button">See features</a>
               </div>
 
               <div class="lt-note">
@@ -736,12 +287,12 @@
 
               <div class="lt-featureCard">
                 <div class="lt-featureIcon"><span class="icon solid fa-comments"></span></div>
-                <p class="lt-featureTitle">Money Messages</p>
+                <p class="lt-featureTitle">Money Conversations</p>
               </div>
 
               <div class="lt-featureCard">
-                <div class="lt-featureIcon"><span class="icon solid fa-paper-plane"></span></div>
-                <p class="lt-featureTitle">Statement Link</p>
+                <div class="lt-featureIcon"><span class="icon solid fa-file-pdf"></span></div>
+                <p class="lt-featureTitle">PDF Statements</p>
               </div>
 
               <div class="lt-featureCard">
@@ -785,12 +336,12 @@
           <!-- QUICK FEATURE GRID -->
           <div id="features" class="lt-featureGrid">
             <div class="lt-card">
-                <h3>Money Messages</h3>
-                <p>Generate ready-to-send follow-ups and repayment updates with a clear breakdown — without sounding awkward or robotic.</p>
+                <h3>Money Conversations</h3>
+                <p>Generate ready-to-send follow-up, ask for loan, and repayment update messages with a clear breakdown and natural tone.</p>
             </div>
             <div class="lt-card">
-              <h3>Running Balance</h3>
-              <p>A single balance per person that reflects real life: lend, repay, lend again — always up to date.</p>
+              <h3>Professional Statements &amp; PDFs</h3>
+              <p>Generate clean PDF statements from real records, with optional logo/image branding for a more polished look.</p>
             </div>
             <div class="lt-card">
               <h3>Reminders &amp; Recurring</h3>
@@ -825,31 +376,54 @@
           <div class="lt-section">
             <div class="lt-snap reverse">
               <div>
-                <div class="lt-kicker">AI</div>
-                <h2 style="margin-top: 0;">Money Messages that save you from awkward texting</h2>
+                <div class="lt-kicker">Conversations</div>
+                <h2 style="margin-top: 0;">Money Conversations that make hard messages easier</h2>
                 <p>
-                  Pick a person and a tone — YouOweMe generates a ready-to-send message for the exact situation:
-                  a friendly follow-up, or a repayment update after someone paid you (fully or partially).
-                  Every message includes a clear breakdown so the other person instantly understands what changed and why.
+                  The hardest part about money is often not the math - it is the message.
+                  Money Conversations gives you three ready-to-send message types based on real balances and history:
+                  Follow-Up, Ask for Loan, and Repayment Update.
                 </p>
                 <p class="lt-note" style="margin-top: 0.5rem;">
-                        Powered by AI, but designed to sound human — you choose the tone and keep control.
+                        Choose a tone (friendly, polite, or firm), adjust details if needed, and keep full control.
                 </p>
 
                 <ul>
-                  <li>Follow-ups and repayment updates (two real-life scenarios)</li>
-                  <li>Clear amount + context, so there’s no confusion</li>
+                  <li>Follow-Up when someone owes you and you want to check in</li>
+                  <li>Ask for Loan when you need to borrow money clearly and respectfully</li>
+                  <li>Repayment Update when you owe someone and want to share your plan</li>
+                  <li>Clear amount + context, so there is no confusion</li>
                   <li>Optional secure summary link (no app install needed)</li>
                 </ul>
               </div>
               <div class="lt-imgWrap">
-                  <img src="https://midoris.github.io/images/money_messages.png" alt="Money Messages — follow-ups and repayment updates" />
+                  <img src="https://midoris.github.io/images/money_messages.png" alt="Money Conversations - follow-up, ask for loan, and repayment update" />
               </div>
             </div>
           </div>
 
           <div class="lt-section">
             <div class="lt-snap">
+              <div>
+                <div class="lt-kicker">Ask for Loan</div>
+                <h2 style="margin-top: 0;">Ask for a loan clearly and respectfully</h2>
+                <p>
+                  When you need to borrow money, the wording matters.
+                  YouOweMe helps you generate an Ask for Loan message that is direct, respectful, and based on your real context.
+                </p>
+                <ul>
+                  <li>Built for real people, not generic templates</li>
+                  <li>Choose a tone that fits your relationship</li>
+                  <li>Clear request without emotional pressure</li>
+                </ul>
+              </div>
+              <div class="lt-imgWrap">
+                <img src="https://midoris.github.io/images/ask_for_loan.png" alt="Ask for Loan message generation" />
+              </div>
+            </div>
+          </div>
+
+          <div class="lt-section">
+            <div class="lt-snap reverse">
               <div>
                 <div class="lt-kicker">Voice</div>
                 <h2 style="margin-top: 0;">Add entries by speaking naturally</h2>
@@ -870,7 +444,7 @@
           </div>
 
           <div class="lt-section">
-            <div class="lt-snap reverse">
+            <div class="lt-snap">
               <div>
                 <div class="lt-kicker">Reminders</div>
                 <h2 style="margin-top: 0;">Never miss repayments</h2>
@@ -890,7 +464,7 @@
           </div>
 
           <div class="lt-section">
-            <div class="lt-snap">
+            <div class="lt-snap reverse">
               <div>
                 <div class="lt-kicker">Splits</div>
                 <h2 style="margin-top: 0;">Split bills fairly (equal or custom)</h2>
@@ -905,6 +479,27 @@
               </div>
               <div class="lt-imgWrap">
                 <img src="https://midoris.github.io/images/split.png" alt="Split bills fairly" />
+              </div>
+            </div>
+          </div>
+
+          <div class="lt-section">
+            <div class="lt-snap">
+              <div>
+                <div class="lt-kicker">Statements</div>
+                <h2 style="margin-top: 0;">Professional Statements &amp; PDFs for formal situations</h2>
+                <p>
+                  For cases where you need something more formal, YouOweMe generates clean, shareable PDF statements from your real records.
+                  You can also add your own logo or image for a more polished presentation.
+                </p>
+                <ul>
+                  <li>Great for small businesses, freelancers, and client payments</li>
+                  <li>Clear repayment summaries for long-term or interest-based balances</li>
+                  <li>Easy to share and clearly formatted to reduce misunderstandings</li>
+                </ul>
+              </div>
+              <div class="lt-imgWrap">
+                <img src="https://midoris.github.io/images/pdf_generation.png" alt="Professional PDF statements and summaries" />
               </div>
             </div>
           </div>
@@ -964,19 +559,26 @@
           <ul>
             <li>Track simple client payments and repayments (without spreadsheets)</li>
             <li>Use Interest Rate tracking for long-term or larger amounts</li>
-            <li>Follow up and confirm repayments with Money Messages</li>
+            <li>Use Money Conversations for follow-ups, loan requests, and repayment updates</li>
+            <li>Share professional PDF statements for clear communication</li>
           </ul>
 
           <hr />
 
           <h2>Key features</h2>
 
-          <h3>Money Messages (Follow-ups + Repayment Updates)</h3>
+          <h3>Money Conversations (Follow-Up + Ask for Loan + Repayment Update)</h3>
           <p>
-            Select a person and a tone, and YouOweMe generates a ready-to-send message for the moment you actually have:
-            a polite follow-up when money is overdue, or a repayment update after someone pays (fully or partially).
+            Select a person and a tone, and YouOweMe generates a ready-to-send message for the situation you actually have:
+            a follow-up when someone owes you, an ask for loan request when you need to borrow, or a repayment update when you owe someone.
             Each message includes a clear breakdown and can include a secure summary link — the other person can view it
             <strong>without installing the app</strong>.
+          </p>
+
+          <h3>Professional Statements &amp; PDFs</h3>
+          <p>
+            Generate clean, professional PDF statements from your records when you need a more formal summary.
+            Add your own logo or image, share statements easily, and keep everyone aligned with clear data.
           </p>
 
           <h3>Voice-to-Entry (Add loans without typing)</h3>
@@ -998,6 +600,7 @@
             <li>Instant sharing of clean summaries for transparency</li>
             <li>Recurring entries for rent, subscriptions, utilities, or repeating payments</li>
             <li>Interest rate tracking for long-term or large amounts</li>
+            <li>Professional PDF statements for formal sharing</li>
             <li>Sync across devices + multiple cloud profiles under one login</li>
             <li>Face ID / Touch ID lock for privacy</li>
             <li>Works offline</li>
@@ -1005,7 +608,11 @@
           </ul>
 
           <ul class="actions special">
-            <li><a href="https://apps.apple.com/app/you-owe-me-short-term-loans/id1147058670?l=en" class="button large">Get YouOweMe</a></li>
+            <li>
+              <a href="https://apps.apple.com/app/you-owe-me-short-term-loans/id1147058670?l=en" class="lt-appStoreBtn" aria-label="Download on the App Store">
+                <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download on the App Store" />
+              </a>
+            </li>
           </ul>
 
           <hr />
@@ -1025,17 +632,27 @@
 
           <h3>Can it help me ask someone to pay me back politely?</h3>
           <p>
-          Yes. Money Messages generates a ready-to-send follow-up with a clear breakdown of what’s owed — in a tone that fits your relationship.
+          Yes. Money Conversations generates a ready-to-send follow-up with a clear breakdown of what’s owed — in a tone that fits your relationship.
+          </p>
+
+          <h3>Can it help me ask for a loan clearly and respectfully?</h3>
+          <p>
+            Yes. You can generate an Ask for Loan message from your real context, choose a tone, and send a clear request without awkward wording.
           </p>
           
           <h3>Can it confirm a repayment or partial payment?</h3>
           <p>
-            Yes. Use Money Messages to send a repayment update after someone pays you — fully or partially — with a clear breakdown of what changed, so there’s no confusion.
+            Yes. Use Money Conversations to send a repayment update with a clear breakdown of what changed, so there is no confusion.
           </p>
 
           <h3>Does it support recurring bills?</h3>
           <p>
             Yes. Use recurring entries and reminders for rent, subscriptions, utilities, and repeating payments.
+          </p>
+
+          <h3>Can I generate professional PDF statements?</h3>
+          <p>
+            Yes. You can generate clean, shareable PDF statements from your records, with an option to add your own logo or image.
           </p>
 
           <hr />
@@ -1060,8 +677,8 @@
 
           <!-- Mobile sticky CTA -->
           <div class="lt-stickyCTA">
-            <a href="https://apps.apple.com/app/you-owe-me-short-term-loans/id1147058670?l=en" class="button large">
-              Download on the App Store
+            <a href="https://apps.apple.com/app/you-owe-me-short-term-loans/id1147058670?l=en" class="lt-appStoreBtn" aria-label="Download on the App Store">
+              <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download on the App Store" />
             </a>
           </div>
 
@@ -1070,7 +687,7 @@
 
       <div id="copyright">
         <ul>
-          <li>&copy; 2025 Ievgenii Iablonskyi</li>
+          <li>&copy; 2026 Ievgenii Iablonskyi</li>
           <li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
         </ul>
       </div>
@@ -1078,54 +695,7 @@
     </div>
 
     <!-- Scripts (go up one level) -->
-    <script>
-      (function () {
-        const mqDesktop = window.matchMedia("(min-width: 737px)");
-
-        function fitReviews() {
-          // only apply on desktop
-          if (!mqDesktop.matches) {
-            // remove inline widths so CSS (74vw) wins on mobile
-            document.querySelectorAll(".lt-reviewCard").forEach(card => {
-              card.style.width = "";
-            });
-            return;
-          }
-
-          const cards = document.querySelectorAll(".lt-reviewCard");
-          if (!cards.length) return;
-
-          const viewportMax = Math.floor(window.innerWidth * 0.9);
-          const MAX_W = Math.min(920, viewportMax);
-          const MIN_W = Math.min(340, MAX_W);
-          const STEP = 20;
-
-          cards.forEach(card => {
-            const p = card.querySelector(".lt-reviewText");
-            if (!p) return;
-
-            let w = MIN_W;
-            card.style.width = w + "px";
-
-            while (w < MAX_W && p.scrollHeight > p.clientHeight + 1) {
-              w += STEP;
-              card.style.width = w + "px";
-            }
-          });
-        }
-
-        window.addEventListener("load", fitReviews);
-
-        let t;
-        window.addEventListener("resize", () => {
-          clearTimeout(t);
-          t = setTimeout(fitReviews, 150);
-        });
-
-        // handle breakpoint changes (rotation etc.)
-        mqDesktop.addEventListener?.("change", fitReviews);
-      })();
-    </script>
+    <script src="./scripts/reviews.js"></script>
     <script src="../assets/js/jquery.min.js"></script>
     <script src="../assets/js/jquery.scrollex.min.js"></script>
     <script src="../assets/js/jquery.scrolly.min.js"></script>
